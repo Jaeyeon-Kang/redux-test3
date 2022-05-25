@@ -1,7 +1,22 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import '@progress/kendo-theme-default/dist/all.css';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const 테스트 = ['#1fe900', '#006de9', '#e9ce00', '#e9000c'];
+
+function reducer(state = 테스트, action) {
+    return state;
 }
 
-export default MyApp
+let store = createStore(reducer);
+
+function MyApp({ Component, pageProps }) {
+    return (
+        <Provider store={store}>
+            <Component {...pageProps} />
+        </Provider>
+    );
+}
+
+export default MyApp;
